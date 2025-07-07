@@ -1,0 +1,172 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  position: relative;
+  background: url('./images/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+/* Эффект размытого фона */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+/* Контент поверх размытого фона */
+#content, .menu-card, nav {
+  position: relative;
+  z-index: 1;
+}
+
+/* Навбар — только сверху, красивый и не на весь экран */
+nav {
+  position: fixed;       /* фиксируем наверху, поверх контента */
+  top: 24px;             /* отступ сверху */
+  left: 50%;             /* центрируем по горизонтали */
+  transform: translateX(-50%);
+  display: flex;
+  gap: 24px;
+  padding: 12px 32px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  align-items: center;
+  width: auto;
+  min-width: 320px;
+  max-width: 90vw;
+  justify-content: center;
+  z-index: 20;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* Кнопки навбара */
+nav button {
+  background: none;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 6px 16px;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+}
+
+nav button:hover {
+  background: #333;
+  color: #fff;
+}
+
+/* Меню — две карточки в ряд */
+.menu-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  padding: 60px 40px 40px 40px;
+  max-width: 800px;
+  margin: 120px auto 0 auto;
+}
+
+/* Карточка */
+.menu-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  margin-bottom: 20px;
+}
+
+.menu-card:hover {
+  transform: translateY(-4px);
+}
+
+.menu-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.menu-title {
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Главная */
+
+#home .home-box {
+  margin: 120px auto 0 auto; /* 120px подбери под высоту nav */
+  max-width: 800px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 120px); /* высота экрана минус nav */
+  padding-top: 48px;
+  text-align: center;
+  /* если хочешь вертикально центрировать, добавь min-height и flex тут */
+}
+
+
+#home h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #ffdd57;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+#home p {
+  font-size: 1.3rem;
+  max-width: 600px;
+  line-height: 1.6;
+  color: #eee;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+#home .home-box {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 40px;
+  border-radius: 16px;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.contact-section {
+  max-width: 500px;
+  margin: 60px auto;
+  background: rgba(255,255,255,0.85);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.contact-section h2 {
+  margin-bottom: 18px;
+  color: #333;
+}
+
+.contact-section p {
+  margin: 10px 0;
+  font-size: 1.07rem;
+}
+
+.contact-map {
+  margin-top: 18px;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.13);
+}
